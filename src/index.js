@@ -26,8 +26,9 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-const server = app.listen(3000, () => {
-  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);});
+app.listen(3000, () => {
+  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
+});
 
 
 app.post('/', (req, res) => {
