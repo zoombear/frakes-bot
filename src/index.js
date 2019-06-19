@@ -78,6 +78,12 @@ app.get('/slack', (req, res) => {
         return;
       }
 
+      axios.post(`${apiUrl}/team.info`, qs.stringify({token: access_token})).then((result) => {
+        if(!result.data.error) {
+          res.redirect(`http://${result.data.team.domain}.slack.com`);
+        }
+      }).catch((err) => { console.error(err); });
+
     }).catch((err) => {
       console.error(err);
     });
